@@ -1,0 +1,29 @@
+class Solution {
+    public int reverse(int x) 
+    {
+        int num = x;
+        long remainder = 0;
+        long sum = 0;
+        int isNegative = 0;
+        if(num < 0)
+        {
+            isNegative = 1;
+            num *= -1;
+        }
+        while(num != 0)
+        {
+            remainder = num % 10;
+            sum = sum * 10 + remainder;
+            num = num / 10;
+        }
+        if(sum < Integer.MIN_VALUE || sum > Integer.MAX_VALUE)
+            return 0;
+        if(x < 0)
+        {
+            sum = sum * -1;
+            return (int)sum;
+        }
+        else
+            return (int)sum;
+    }
+}
